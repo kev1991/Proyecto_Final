@@ -26,5 +26,11 @@ namespace Proyecto_Final.Controllers
 
             return View();
         }
+
+        public ActionResult Biografia()
+        {
+
+            return View();
+        }
     }
 }
