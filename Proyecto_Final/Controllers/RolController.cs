@@ -16,7 +16,42 @@ namespace Proyecto_Final.Controllers
             {
                 return View(db.roles.ToList());
             }
-                
+
         }
+
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+
+        public ActionResult Create(roles roles)
+        {
+            if (!ModelState.IsValid)
+                return View();
+
+            try
+            {
+                using (var db = new inventario2021Entities())
+                {
+                    db.roles.Add(roles);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", "error " + ex);
+                return View();
+            }
+        }
+
+
+
+
     }
+
+
 }
