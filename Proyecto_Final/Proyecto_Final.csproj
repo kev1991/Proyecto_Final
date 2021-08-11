@@ -242,6 +242,8 @@
     <Content Include="Views\Rol\Index.cshtml" />
     <Content Include="Views\Rol\Create.cshtml" />
     <Content Include="Views\Rol\Details.cshtml" />
+    <Content Include="Views\Rol\Delete.cshtml" />
+    <Content Include="Views\Rol\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
