@@ -57,7 +57,24 @@ namespace Proyecto_Final.Controllers
             }
         }
 
-        
+        public ActionResult Delete(int id)
+        {
+            try
+            {
+                using (var db = new inventario2021Entities())
+                {
+                    var findUser = db.usuario.Find(id);
+                    db.usuario.Remove(findUser);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", "error " + ex);
+                return View();
+            }
+        }
 
     }
 }
