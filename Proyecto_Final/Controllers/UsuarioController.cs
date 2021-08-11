@@ -47,5 +47,17 @@ namespace Proyecto_Final.Controllers
             }
         }
 
+
+        public ActionResult Details(int id)
+        {
+            using (var db = new inventario2021Entities())
+            {
+                var findUser = db.usuario.Find(id);
+                return View(findUser);
+            }
+        }
+
+        
+
     }
 }
