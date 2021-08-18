@@ -1,5 +1,4 @@
-﻿@model IEnumerable<Proyecto_Final.Models.usuario>
-
+﻿@model IEnumerable<Proyecto_Final.Models.producto_imagen>
 @{
     ViewBag.Title = "Index";
 }
@@ -12,19 +11,10 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.nombre)
+            @Html.DisplayNameFor(model => model.imagen)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.apellido)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.fecha_nacimiento)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.email)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.password)
+            @Html.DisplayNameFor(model => model.producto.nombre)
         </th>
         <th></th>
     </tr>
@@ -33,19 +23,10 @@
     {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.nombre)
+                @Html.DisplayFor(modelItem => item.imagen)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.apellido)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.fecha_nacimiento)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.email)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.password)
+                @Proyecto_Final.Controllers.Producto_ImagenController.NombreProducto(item.id_producto)
             </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
@@ -65,4 +46,4 @@
             }
         })
     </script>
-}
+    }
