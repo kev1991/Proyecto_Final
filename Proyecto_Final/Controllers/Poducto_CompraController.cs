@@ -27,6 +27,26 @@ namespace Proyecto_Final.Controllers
             }
         }
 
+        //public static string ID_compra(int id_compra)
+        //{
+        //    using (var db = new inventario2021Entities())
+        //    {
+        //        return db.compra.Find(id_compra).id;
+        //    }
+        //}
+
+        public ActionResult ListarProducto()
+        {
+            using (var db = new inventario2021Entities())
+                return PartialView(db.producto.ToList());
+        }
+
+        public ActionResult ListarCompra()
+        {
+            using (var db = new inventario2021Entities())
+                return PartialView(db.compra.ToList());
+        }
+
         public ActionResult Create()
         {
             return View();
