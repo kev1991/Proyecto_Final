@@ -5,21 +5,29 @@ using System.Web;
 using System.Web.Mvc;
 using Proyecto_Final.Models;
 
-
 namespace Proyecto_Final.Controllers
 {
-    public class Poducto_CompraController : Controller
+    public class Producto_CompraController : Controller
     {
-        // GET: Poducto_Compra
+        // GET: Producto_Compra
         public ActionResult Index()
         {
             using (var db = new inventario2021Entities())
             {
                 return View(db.producto_compra.ToList());
             }
+
         }
 
-        public static string Nombre_Producto(int idproducto)
+        public static int TotalCompra(int idcompra)
+        {
+            using (var db = new inventario2021Entities())
+            {
+                return db.compra.Find(idcompra).total;
+            }
+        }
+
+        public static string NombreProducto(int idproducto)
         {
             using (var db = new inventario2021Entities())
             {
@@ -27,25 +35,22 @@ namespace Proyecto_Final.Controllers
             }
         }
 
-        //public static string ID_compra(int id_compra)
-        //{
-        //    using (var db = new inventario2021Entities())
-        //    {
-        //        return db.compra.Find(id_compra).id;
-        //    }
-        //}
+        public ActionResult ListarCompra()
+        {
+            using (var db = new inventario2021Entities())
+            {
+                return PartialView(db.compra.ToList());
+            }
+        }
 
         public ActionResult ListarProducto()
         {
             using (var db = new inventario2021Entities())
+            {
                 return PartialView(db.producto.ToList());
+            }
         }
 
-        public ActionResult ListarCompra()
-        {
-            using (var db = new inventario2021Entities())
-                return PartialView(db.compra.ToList());
-        }
 
         public ActionResult Create()
         {
@@ -54,17 +59,56 @@ namespace Proyecto_Final.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-
-        public ActionResult Create(producto_compra productoComp)
+        public ActionResult Create(producto_compra producto_compra)
         {
             if (!ModelState.IsValid)
-
                 return View();
+
             try
             {
                 using (var db = new inventario2021Entities())
                 {
-                    db.producto_compra.Add(productoComp);
+                    db.producto_compra.Add(producto_compra);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+            }
+            catch (Exception kev)
+            {
+                ModelState.AddModelError("", "error " + kev);
+                return View();
+            }
+        }
+
+        public ActionResult Details(int id)
+        {
+            using (var db = new inventario2021Entities())
+            {
+                return View(db.producto_compra.Find(id));
+            }
+        }
+
+        public ActionResult Edit(int id)
+        {
+            using (var db = new inventario2021Entities())
+            {
+                producto_compra producto_compra_Edit = db.producto_compra.Where(a => a.id == id).FirstOrDefault();
+                return View(producto_compra_Edit);
+            }
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(producto_compra producto_compra_Edit)
+        {
+            try
+            {
+                using (var db = new inventario2021Entities())
+                {
+                    var old_producto_compra = db.producto_compra.Find(producto_compra_Edit.id);
+                    old_producto_compra.id_compra = producto_compra_Edit.id_compra;
+                    old_producto_compra.id_producto = producto_compra_Edit.id_producto;
+                    old_producto_compra.cantidad = producto_compra_Edit.cantidad;
                     db.SaveChanges();
                     return RedirectToAction("Index");
                 }
@@ -73,49 +117,6 @@ namespace Proyecto_Final.Controllers
             {
                 ModelState.AddModelError("", "error " + ex);
                 return View();
-                throw;
-            }
-        }
-
-        public ActionResult Details(int id)
-        {
-            using (var db = new inventario2021Entities())
-            {
-                return View(db.producto_imagen.Find(id));
-            }
-        }
-
-        public ActionResult Edit(int id)
-        {
-            using (var db = new inventario2021Entities())
-            {
-                producto_imagen producto_Image_Edit = db.producto_imagen.Where(kev => kev.id == id).FirstOrDefault();
-                return View(producto_Image_Edit);
-            }
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-
-
-        public ActionResult Edit(producto_imagen producto_Imagen_Edit)
-        {
-            try
-            {
-                using (var db = new inventario2021Entities())
-                {
-                    var Product_Img = db.producto_imagen.Find(producto_Imagen_Edit.id);
-                    Product_Img.imagen = producto_Imagen_Edit.imagen;
-                    Product_Img.id_producto = producto_Imagen_Edit.id_producto;
-                    db.SaveChanges();
-                    return RedirectToAction("Index");
-                }
-            }
-            catch (Exception kev)
-            {
-                ModelState.AddModelError("", "error" + kev);
-                return View();
-                throw;
             }
         }
 
@@ -125,35 +126,17 @@ namespace Proyecto_Final.Controllers
             {
                 using (var db = new inventario2021Entities())
                 {
-                    producto_imagen producto_Image = db.producto_imagen.Find(id);
-                    db.producto_imagen.Remove(producto_Image);
+                    producto_compra producto_Compra = db.producto_compra.Find(id);
+                    db.producto_compra.Remove(producto_Compra);
                     db.SaveChanges();
                     return RedirectToAction("Index");
                 }
             }
-            catch (Exception ex)
+            catch (Exception kev)
             {
-                ModelState.AddModelError("", "error " + ex);
+                ModelState.AddModelError("", "error " + kev);
                 return View();
             }
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
 }

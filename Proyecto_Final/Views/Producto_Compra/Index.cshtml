@@ -1,11 +1,5 @@
 ﻿@model IEnumerable<Proyecto_Final.Models.producto_compra>
 
-@{
-    ViewBag.Title = "Index";
-}
-
-<h2>Index</h2>
-
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
@@ -30,10 +24,10 @@
                 @Html.DisplayFor(modelItem => item.cantidad)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.compra.id)
+                @Proyecto_Final.Controllers.Producto_CompraController.TotalCompra(item.id_compra)
             </td>
             <td>
-                @Proyecto_Final.Controllers.Poducto_CompraController.Nombre_Producto(item.id_producto)
+                @Proyecto_Final.Controllers.Producto_CompraController.NombreProducto(item.id_producto)
             </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
@@ -44,7 +38,6 @@
     }
 
 </table>
-
 @section scripts{
     <script>
         $(".linkDelete").click(function (event) {

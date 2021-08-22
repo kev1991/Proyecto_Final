@@ -131,12 +131,13 @@
     <Compile Include="Controllers\ClienteController.cs" />
     <Compile Include="Controllers\CompraController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\Poducto_CompraController.cs" />
     <Compile Include="Controllers\ProductoController.cs" />
+    <Compile Include="Controllers\Producto_CompraController.cs" />
     <Compile Include="Controllers\Producto_ImagenController.cs" />
     <Compile Include="Controllers\ProveedorController.cs" />
     <Compile Include="Controllers\RolController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
+    <Compile Include="Controllers\Usuario_RolController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -269,8 +270,6 @@
     <Content Include="Views\Producto_Imagen\Create.cshtml" />
     <Content Include="Views\Producto_Imagen\Edit.cshtml" />
     <Content Include="Views\Producto_Imagen\Details.cshtml" />
-    <Content Include="Views\Poducto_Compra\Index.cshtml" />
-    <Content Include="Views\Poducto_Compra\Create.cshtml" />
     <Content Include="Views\Compra\Index.cshtml" />
     <Content Include="Views\Compra\Create.cshtml" />
     <Content Include="Views\Compra\ListarUsuario.cshtml" />
@@ -278,11 +277,17 @@
     <Content Include="Views\Compra\Details.cshtml" />
     <Content Include="Views\Compra\Edit.cshtml" />
     <Content Include="Views\Compra\Delete.cshtml" />
-    <Content Include="Views\Poducto_Compra\ListarProducto.cshtml" />
-    <Content Include="Views\Poducto_Compra\ListarCompra.cshtml" />
+    <Content Include="Views\Producto_Compra\Index.cshtml" />
+    <Content Include="Views\Producto_Compra\Create.cshtml" />
+    <Content Include="Views\Producto_Compra\ListarCompra.cshtml" />
+    <Content Include="Views\Producto_Compra\ListarProducto.cshtml" />
+    <Content Include="Views\Producto_Compra\Details.cshtml" />
+    <Content Include="Views\Producto_Compra\Edit.cshtml" />
+    <Content Include="Views\Producto_Compra\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Usuario_Rol\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
