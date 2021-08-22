@@ -1,0 +1,28 @@
+﻿@model Proyecto_Final.Models.usuariorol
+
+<div>
+    <h4>usuariorol</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.roles.descripcion)
+        </dt>
+
+        <dd>
+            @Proyecto_Final.Controllers.Usuario_RolController.Descripcion_Rol(Model.idRol)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.usuario.nombre)
+        </dt>
+
+        <dd>
+            @Proyecto_Final.Controllers.Usuario_RolController.Nombre_Usuario(Model.idUsuario)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

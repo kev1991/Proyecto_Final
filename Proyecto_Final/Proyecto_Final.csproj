@@ -284,10 +284,16 @@
     <Content Include="Views\Producto_Compra\Details.cshtml" />
     <Content Include="Views\Producto_Compra\Edit.cshtml" />
     <Content Include="Views\Producto_Compra\Delete.cshtml" />
+    <Content Include="Views\Usuario_Rol\Index.cshtml" />
+    <Content Include="Views\Usuario_Rol\ListarUsuario.cshtml" />
+    <Content Include="Views\Usuario_Rol\ListarRol.cshtml" />
+    <Content Include="Views\Usuario_Rol\Create.cshtml" />
+    <Content Include="Views\Usuario_Rol\Details.cshtml" />
+    <Content Include="Views\Usuario_Rol\Edit.cshtml" />
+    <Content Include="Views\Usuario_Rol\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Usuario_Rol\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
