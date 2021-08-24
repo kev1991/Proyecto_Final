@@ -1,11 +1,17 @@
 ﻿@model Proyecto_Final.Models.producto
 
+@{
+    ViewBag.Title = "Detalle Producto";
+}
+
+<h2>Detalle</h2>
+
 <div>
-    <h4>producto</h4>
+    <h4>Producto</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.nombre)
+            Nombre Producto
         </dt>
 
         <dd>
@@ -13,7 +19,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.percio_unitario)
+            Percio Unitario
         </dt>
 
         <dd>
@@ -21,7 +27,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.descripcion)
+            Descripcion Producto
         </dt>
 
         <dd>
@@ -29,7 +35,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.cantidad)
+            Cantidad en Existencia
         </dt>
 
         <dd>
@@ -37,16 +43,16 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.proveedor.nombre)
+            Proveedor del Producto
         </dt>
 
         <dd>
-           @Proyecto_Final.Controllers.ProductoController.NombreProveedor(Model.id_proveedor)
+            @Proyecto_Final.Controllers.ProductoController.NombreProveedor(Model.id_proveedor)
         </dd>
 
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Editar Producto", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Regresar a la lista", "Index")
 </p>
