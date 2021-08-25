@@ -1,18 +1,18 @@
 ﻿@model IEnumerable<Proyecto_Final.Models.roles>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Rol";
 }
 
-<h2>Index</h2>
+<h2>Lista de Roles</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Registrar un Rol", "Create")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.descripcion)
+            Descripcion del Rol
         </th>
         <th></th>
     </tr>
@@ -24,9 +24,9 @@
                 @Html.DisplayFor(modelItem => item.descripcion)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
-                @Html.ActionLink("Details", "Details", new { id = item.id }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.id }, new { @class = "linkDelete" })
+                @Html.ActionLink("Editar", "Edit", new { id = item.id }) |
+                @Html.ActionLink("Detalles", "Details", new { id = item.id }) |
+                @Html.ActionLink("Eliminar", "Delete", new { id = item.id }, new { @class = "linkDelete" })
             </td>
         </tr>
     }
