@@ -33,7 +33,8 @@
     <div class="form-group">
         <label class="control-label col-md-2" for="fecha_nacimiento">Fecha de Nacimiento</label>
         <div class="col-md-10">
-            <input class="form-control text-box single-line" data-val="true" data-val-date="El campo fecha_nacimiento debe ser una fecha." data-val-required="El campo fecha_nacimiento es obligatorio." id="fecha_nacimiento" name="fecha_nacimiento" type="date" value="">            @Html.ValidationMessageFor(model => model.fecha_nacimiento, "", new { @class = "text-danger" })
+            <input class="form-control text-box single-line" data-val="true" data-val-date="El campo fecha_nacimiento debe ser una fecha." data-val-required="El campo fecha_nacimiento es obligatorio." id="fecha_nacimiento" name="fecha_nacimiento" type="date" value="">         
+            @Html.ValidationMessageFor(model => model.fecha_nacimiento, "", new { @class = "text-danger" })
         </div>
     </div>
 

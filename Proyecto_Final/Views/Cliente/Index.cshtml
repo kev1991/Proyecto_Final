@@ -1,24 +1,24 @@
 ﻿@model IEnumerable<Proyecto_Final.Models.cliente>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Cliente";
 }
 
-<h2>Index</h2>
+<h2>Lista de Cliente</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Registrar un Cliente", "Create")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.nombre)
+            Nombre Cliente
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.documento)
+            Documento del Cliente
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.email)
+            Correo Electronico del Cliente 
         </th>
         <th></th>
     </tr>
@@ -36,9 +36,9 @@
                 @Html.DisplayFor(modelItem => item.email)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
-                @Html.ActionLink("Details", "Details", new { id = item.id }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.id }, new { @class = "linkDelete" })
+                @Html.ActionLink("Editar", "Edit", new { id = item.id }) |
+                @Html.ActionLink("Detalles", "Details", new { id = item.id }) |
+                @Html.ActionLink("Eliminar", "Delete", new { id = item.id }, new { @class = "linkDelete" })
             </td>
         </tr>
     }
