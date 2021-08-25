@@ -1,20 +1,20 @@
 ﻿@model IEnumerable<Proyecto_Final.Models.producto_imagen>
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Producto Imagen";
 }
 
-<h2>Index</h2>
+<h2>Listar Producto Imagen</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Crear del Imagen Producto", "Create")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.imagen)
+            Imagen Producto
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.producto.nombre)
+            Nombre del Producto
         </th>
         <th></th>
     </tr>
@@ -29,9 +29,9 @@
                 @Proyecto_Final.Controllers.Producto_ImagenController.NombreProducto(item.id_producto)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
-                @Html.ActionLink("Details", "Details", new { id = item.id }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.id }, new { @class = "linkDelete" })
+                @Html.ActionLink("Editar", "Edit", new { id = item.id }) |
+                @Html.ActionLink("Detalles", "Details", new { id = item.id }) |
+                @Html.ActionLink("Eliminar", "Delete", new { id = item.id }, new { @class = "linkDelete" })
             </td>
         </tr>
     }
