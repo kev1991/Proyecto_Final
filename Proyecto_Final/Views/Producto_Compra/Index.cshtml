@@ -1,18 +1,23 @@
 ﻿@model IEnumerable<Proyecto_Final.Models.producto_compra>
 
+@{
+    ViewBag.Title = "Producto Compra";
+}
+
+<h2>Lista de Producto</h2>
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Registrar Producto Compra", "Create")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.cantidad)
+            Cantidad
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.compra.id)
+            Número de Compra
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.producto.nombre)
+            Nombre Producto
         </th>
         <th></th>
     </tr>
@@ -30,9 +35,9 @@
                 @Proyecto_Final.Controllers.Producto_CompraController.NombreProducto(item.id_producto)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
-                @Html.ActionLink("Details", "Details", new { id = item.id }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.id }, new { @class = "linkDelete" })
+                @Html.ActionLink("Editar", "Edit", new { id = item.id }) |
+                @Html.ActionLink("Detalles", "Details", new { id = item.id }) |
+                @Html.ActionLink("Eliminar", "Delete", new { id = item.id }, new { @class = "linkDelete" })
             </td>
         </tr>
     }

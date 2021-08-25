@@ -1,11 +1,16 @@
 ﻿@model Proyecto_Final.Models.producto_compra
 
+@{
+    ViewBag.Title = "Editar";
+}
+
+<h2>Registrar</h2>
 <div>
-    <h4>producto_compra</h4>
+    <h4>Producto Compra</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.cantidad)
+            Cantidad
         </dt>
 
         <dd>
@@ -13,7 +18,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.compra.id)
+            Número de Compra
         </dt>
 
         <dd>
@@ -21,7 +26,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.producto.nombre)
+            Nombre Producto
         </dt>
 
         <dd>
@@ -31,6 +36,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Editar Producto", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Regresar a la lista", "Index")
 </p>
