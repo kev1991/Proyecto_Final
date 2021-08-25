@@ -291,6 +291,7 @@
     <Content Include="Views\Usuario_Rol\Details.cshtml" />
     <Content Include="Views\Usuario_Rol\Edit.cshtml" />
     <Content Include="Views\Usuario_Rol\Delete.cshtml" />
+    <Content Include="Views\Usuario\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -30,6 +30,10 @@
                     <li>@Html.ActionLink("Compra", "Index", "Compra")</li>
                     <li>@Html.ActionLink("Producto_Compra", "Index", "Producto_Compra")</li>
                     <li>@Html.ActionLink("Usuario_Rol", "Index", "Usuario_Rol")</li>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li>@Html.ActionLink("Cerrar Sesion", "CloseSession", "Usuario")</li>
+                    }
                     
                 </ul>
             </div>
