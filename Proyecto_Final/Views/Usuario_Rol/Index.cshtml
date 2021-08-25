@@ -1,15 +1,20 @@
 ﻿@model IEnumerable<Proyecto_Final.Models.usuariorol>
+@{
+    ViewBag.Title = "Usuario Rol";
+}
+
+<h2>Lista de Usuario Rol</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Registrar Usuario Rol", "Create")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.roles.descripcion)
+            Descripcion del Rol
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.usuario.nombre)
+            Nombre del Usuario
         </th>
         <th></th>
     </tr>
@@ -24,9 +29,9 @@
                 @Proyecto_Final.Controllers.Usuario_RolController.Nombre_Usuario(item.idRol)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
-                @Html.ActionLink("Details", "Details", new { id = item.id }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.id }, new { @class = "linkDelete" })
+                @Html.ActionLink("Editar", "Edit", new { id = item.id }) |
+                @Html.ActionLink("Detalles", "Details", new { id = item.id }) |
+                @Html.ActionLink("Eliminar", "Delete", new { id = item.id }, new { @class = "linkDelete" })
             </td>
         </tr>
     }
