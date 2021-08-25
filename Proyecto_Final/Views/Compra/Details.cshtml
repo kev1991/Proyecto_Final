@@ -1,11 +1,15 @@
 ﻿@model Proyecto_Final.Models.compra
+@{
+    ViewBag.Title = "Detalle";
+}
 
+<h2>Detalle</h2>
 <div>
-    <h4>compra</h4>
+    <h4>Compra</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.fecha)
+            Fecha de Compra
         </dt>
 
         <dd>
@@ -13,7 +17,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.total)
+            Total Compra
         </dt>
 
         <dd>
@@ -21,7 +25,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.cliente.nombre)
+            Nombre Cliente
         </dt>
 
         <dd>
@@ -29,7 +33,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.usuario.nombre)
+            Nombre Usuario
         </dt>
 
         <dd>
@@ -39,6 +43,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Editar Producto", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Regresar a la lista", "Index")
 </p>
