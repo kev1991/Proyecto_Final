@@ -20,22 +20,29 @@
                 @Html.ActionLink("Proyecto_Final", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav ">
-                    <li>@Html.ActionLink("Usuario", "Index", "Usuario")</li>
-                    <li>@Html.ActionLink("Producto", "Index", "Producto")</li>
-                    <li>@Html.ActionLink("Cliente", "Index", "Cliente")</li>
-                    <li>@Html.ActionLink("Proveedor", "Index", "Proveedor")</li>
-                    <li>@Html.ActionLink("Rol", "Index", "Rol")</li>
-                    <li>@Html.ActionLink("Producto_imagen", "Index", "Producto_imagen")</li>
-                    <li>@Html.ActionLink("Compra", "Index", "Compra")</li>
-                    <li>@Html.ActionLink("Producto_Compra", "Index", "Producto_Compra")</li>
-                    <li>@Html.ActionLink("Usuario_Rol", "Index", "Usuario_Rol")</li>
-                    @if (User.Identity.IsAuthenticated)
-                    {
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <ul class="nav navbar-nav ">
+                        <li>@Html.ActionLink("Usuario", "Index", "Usuario")</li>
+                        <li>@Html.ActionLink("Producto", "Index", "Producto")</li>
+                        <li>@Html.ActionLink("Cliente", "Index", "Cliente")</li>
+                        <li>@Html.ActionLink("Proveedor", "Index", "Proveedor")</li>
+                        <li>@Html.ActionLink("Rol", "Index", "Rol")</li>
+                        <li>@Html.ActionLink("Producto_imagen", "Index", "Producto_imagen")</li>
+                        <li>@Html.ActionLink("Compra", "Index", "Compra")</li>
+                        <li>@Html.ActionLink("Producto_Compra", "Index", "Producto_Compra")</li>
+                        <li>@Html.ActionLink("Usuario_Rol", "Index", "Usuario_Rol")</li>
                         <li>@Html.ActionLink("Cerrar Sesion", "CloseSession", "Usuario")</li>
-                    }
-                    
-                </ul>
+
+                    </ul>
+                }
+                @if (User.Identity.IsAuthenticated == false)
+                {
+                    <ul class="nav navbar-nav ">
+                        <li>@Html.ActionLink("Iniciar Sesion", "Login", "Usuario")</li>
+                    </ul>
+                }
+
             </div>
         </div>
     </div>
