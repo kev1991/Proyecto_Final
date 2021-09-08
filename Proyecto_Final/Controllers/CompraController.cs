@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Proyecto_Final.Models;
+using Rotativa;
 
 
 namespace Proyecto_Final.Controllers
@@ -165,7 +166,12 @@ namespace Proyecto_Final.Controllers
             }
         }
 
-
+        public ActionResult PDF_Reporte()
+        {
+            return new ActionAsPdf("Reporte") 
+                { FileName = "Reporte.pdf" }
+            ;
+        }
 
 
 
