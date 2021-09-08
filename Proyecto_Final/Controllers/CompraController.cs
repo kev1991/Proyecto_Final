@@ -141,7 +141,29 @@ namespace Proyecto_Final.Controllers
         }
 
 
-
+        public ActionResult Reporte()
+        {
+            try
+            {
+                var db = new inventario2021Entities();
+                var query = from table_cliente in db.cliente
+                            join table_compra in db.compra on table_cliente.id equals table_compra.id_cliente
+                            select new Reporte
+                            {
+                                nombre_cliente = table_cliente.nombre,
+                                fecha_compra = table_compra.fecha,
+                                total_compra = table_compra.total,
+                                correo_cliente = table_cliente.email
+                            };
+                return View(query);
+            }
+            catch (Exception kev)
+            {
+                ModelState.AddModelError("", "error " + kev);
+                return View();
+                throw;
+            }
+        }
 
 
 

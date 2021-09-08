@@ -1,0 +1,24 @@
+﻿@model IEnumerable<Proyecto_Final.Models.Reporte>
+@{
+    ViewBag.Title = "Reporte";
+}
+
+<h2>Reporte</h2>
+
+<table class="table">
+    <tr>
+        <th> Cliente </th>
+        <th> Fecha Compra </th>
+        <th> Total Compra </th>
+        <th> Correo Cliente </th>
+    </tr>
+    @foreach (var kev in Model)
+        {
+            <tr>
+                <td> @Html.DisplayFor(modelItem => kev.nombre_cliente) </td>
+                <td> @Html.DisplayFor(modelItem => kev.fecha_compra) </td>
+                <td> @Html.DisplayFor(modelItem => kev.total_compra) </td>
+                <td> @Html.DisplayFor(modelItem => kev.correo_cliente) </td>
+            </tr> 
+        }
+</table>
