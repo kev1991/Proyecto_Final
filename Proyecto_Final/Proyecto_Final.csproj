@@ -302,6 +302,8 @@
     <Content Include="Views\Usuario_Rol\Delete.cshtml" />
     <Content Include="Views\Usuario\Login.cshtml" />
     <Content Include="Views\Compra\Reporte.cshtml" />
+    <Content Include="Views\Proveedor\Cargar_CSV.cshtml" />
+    <Content Include="Views\Cliente\Carga_CSV_Cliente.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Proyecto_Final.Models;
+using System.IO;
 
 
 namespace Proyecto_Final.Controllers
@@ -124,7 +125,71 @@ namespace Proyecto_Final.Controllers
             }
         }
 
+        //CARGA MASIVA
 
+        public ActionResult Carga_CSV_Cliente()
+        {
+            return View();
+        }
+
+        [HttpPost]
+
+        public ActionResult upload_csv_cliente(HttpPostedFileBase file_Form_Cliente)
+        {
+            try
+            {
+                //string para guardar la ruta
+                string filePath = string.Empty;
+
+                //condicion pra saber si el archivo llego
+                if (file_Form_Cliente != null)
+                {
+                    //ruta de la carpeta que guarda el archivo
+                    string path = Server.MapPath("~/Uploads_cliente/");
+                    if (!Directory.Exists(path))
+                    {
+                        Directory.CreateDirectory(path);
+                    }
+                    //obtener el nombre del archivo
+                    filePath = path + Path.GetFileName(file_Form_Cliente.FileName);
+
+                    //obtener la extension del archivo
+                    string extension = Path.GetExtension(file_Form_Cliente.FileName);
+
+                    //guardar el archivo
+                    file_Form_Cliente.SaveAs(filePath);
+
+                    string csvData = System.IO.File.ReadAllText(filePath);
+
+                    foreach (string row in csvData.Split('\n'))
+                    {
+                        if (!string.IsNullOrEmpty(row))
+                        {
+                            var newCliente = new cliente
+                            {
+                                nombre = row.Split(';')[0],
+                                documento = row.Split(';')[1],
+                                email = row.Split(';')[2]
+                            };
+                            
+                            using (var kev_db = new inventario2021Entities())
+                            {
+                                kev_db.cliente.Add(newCliente);
+                                kev_db.SaveChanges();
+                            }
+                        }
+                    }
+                }
+
+                return RedirectToAction("Index");
+
+            }
+            catch (Exception kev)
+            {
+                ModelState.AddModelError("", "error " + kev);
+                return View();
+            }
+        }
 
 
 
