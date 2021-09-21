@@ -1,0 +1,30 @@
+﻿
+.navbar-inverse {
+    background-color: #ff8600;
+    border-color: #080808;
+}
+
+.glyphicon{
+    top:16px;
+}
+
+.navbar-inverse .navbar-brand, .navbar-inverse .navbar-nav > li > a {
+    color: black;
+}
+
+footer {
+    background-color: #ff8600;
+    position: ;
+    bottom: 0;
+    width: 99%;
+    height: 40px;
+    color: white;
+}
+
+footer p{
+ text-align: center;
+}
+
+.link{
+    align-items: center;
+}

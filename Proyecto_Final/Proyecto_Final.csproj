@@ -194,6 +194,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Layout.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -304,6 +305,7 @@
     <Content Include="Views\Compra\Reporte.cshtml" />
     <Content Include="Views\Proveedor\Cargar_CSV.cshtml" />
     <Content Include="Views\Cliente\Carga_CSV_Cliente.cshtml" />
+    <Content Include="Views\Compra\Carga_CSV_Compra.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

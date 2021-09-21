@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using Proyecto_Final.Models;
 using Rotativa;
+using System.IO;
 
 
 namespace Proyecto_Final.Controllers
@@ -173,7 +174,72 @@ namespace Proyecto_Final.Controllers
             ;
         }
 
+        // Carga masiva
 
+        public ActionResult Carga_CSV_Compra()
+        {
+            return View();
+        }
+
+        [HttpPost]
+
+        public ActionResult upload_csv_compra(HttpPostedFileBase file_Form_Compra)
+        {
+            try
+            {
+                //string para guardar la ruta
+                string filePath = string.Empty;
+
+                //condicion pra saber si el archivo llego
+                if (file_Form_Compra != null)
+                {
+                    //ruta de la carpeta que guarda el archivo
+                    string path = Server.MapPath("~/Uploads_compra/");
+                    if (!Directory.Exists(path))
+                    {
+                        Directory.CreateDirectory(path);
+                    }
+                    //obtener el nombre del archivo
+                    filePath = path + Path.GetFileName(file_Form_Compra.FileName);
+
+                    //obtener la extension del archivo
+                    string extension = Path.GetExtension(file_Form_Compra.FileName);
+
+                    //guardar el archivo
+                    file_Form_Compra.SaveAs(filePath);
+
+                    string csvData = System.IO.File.ReadAllText(filePath);
+
+                    foreach (string row in csvData.Split('\n'))
+                    {
+                        if (!string.IsNullOrEmpty(row))
+                        {
+                            var newCompra = new compra
+                            {
+                                fecha = Convert.ToDateTime( row.Split(';')[0]),
+                                total = Convert.ToInt16 (row.Split(';')[1]),
+                                id_usuario = Convert.ToInt16 (row.Split(';')[2]),
+                                id_cliente = Convert.ToInt16 (row.Split(';')[3])
+                            };
+
+                            using (var kev_db = new inventario2021Entities())
+                            {
+                                kev_db.compra.Add(newCompra);
+                                kev_db.SaveChanges();
+                            }
+                        }
+                    }
+                }
+
+                return RedirectToAction("Index");
+
+            }
+            catch (Exception kev)
+            {
+                ModelState.AddModelError("", "error " + kev);
+                return View();
+            }
+        }
 
 
 
