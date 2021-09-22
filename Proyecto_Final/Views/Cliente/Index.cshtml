@@ -9,7 +9,7 @@
 <p>
     @Html.ActionLink("Registrar un Cliente", "Create")
 </p>
-<table class="table">
+<table class="table table-striped">
     <tr>
         <th>
             Nombre Cliente
@@ -46,6 +46,7 @@
 </table>
 
 @Html.ActionLink("Carga Masiva", "Carga_CSV_Cliente") |
+@Html.ActionLink("Paginador", "Paginador_Index_C")
 
 
 @section scripts{

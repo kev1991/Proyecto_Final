@@ -6,7 +6,9 @@ using System.Web.Mvc;
 using Proyecto_Final.Models;
 using System.Web.Security;
 using System.Text;
+#pragma warning disable CS0105 // La directiva using para 'System.Web.Security' aparece previamente en este espacio de nombres
 using System.Web.Security;
+#pragma warning restore CS0105 // La directiva using para 'System.Web.Security' aparece previamente en este espacio de nombres
 
 namespace Proyecto_Final.Controllers
 {

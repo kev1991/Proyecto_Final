@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.Mvc;
 using Proyecto_Final.Models;
 using System.IO;
+using System.Web.Routing;
+
 
 
 namespace Proyecto_Final.Controllers
@@ -191,7 +193,37 @@ namespace Proyecto_Final.Controllers
             }
         }
 
+        //Codigo para crear un compaginador 
 
+        public ActionResult Paginador_Index_C(int pagina = 1)
+        {
+            try
+            {
+                var Cantidad_Registros = 4;
+
+                using (var db = new inventario2021Entities())
+                {
+                    var clientes = db.cliente.OrderBy(x => x.id).Skip((pagina - 1) * Cantidad_Registros).Take(Cantidad_Registros).ToList();
+
+                    var Total_Registros = db.cliente.Count();
+                    var Modelo = new Cliente_Index();
+                    Modelo.Clientes = clientes;
+                    Modelo.Actual_Page = pagina;
+                    Modelo.Total = Total_Registros;
+                    Modelo.Records_Page = Cantidad_Registros;
+                    Modelo.valueQueryString = new RouteValueDictionary();
+
+                    return View(Modelo);
+
+                }
+            }
+            catch (Exception kev)
+            {
+                ModelState.AddModelError("", "Error " + kev);
+                return View();
+                throw;
+            }
+        }
 
 
 

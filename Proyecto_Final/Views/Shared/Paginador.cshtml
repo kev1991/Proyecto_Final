@@ -1,0 +1,72 @@
+﻿@model Proyecto_Final.Models.Base_Modelo_Paginador
+
+@{
+    var cantidadPaginas = (int)Math.Ceiling((double)Model.Total / Model.Records_Page);
+}
+
+<ul>
+    @if (Model.Actual_Page == 1)
+    {
+        Model.valueQueryString["pagina"] = 1;
+        <li class="disabled">@Html.ActionLink("Anterior", null, Model.valueQueryString)</li>
+    }
+    else
+    {
+        Model.valueQueryString["pagina"] = Model.Actual_Page - 1;
+        <li class="">@Html.ActionLink("Anterior", null, Model.valueQueryString)</li>
+    }
+
+    @if (Model.Actual_Page == cantidadPaginas)
+    {
+        Model.valueQueryString["pagina"] = cantidadPaginas;
+        <li class="disabled">@Html.ActionLink("Siguiente", null, Model.valueQueryString)</li>
+    }
+    else
+    {
+        Model.valueQueryString["pagina"] = Model.Actual_Page + 1;
+        <li class="">@Html.ActionLink("Siguiente", null, Model.valueQueryString)</li>
+    }
+
+</ul>
+
+@{
+    int Inicial = 1;
+    var radio = 3;
+    var cantidadMaximaDePaginas = radio * 2 - 1;
+    int Final = (cantidadPaginas > cantidadMaximaDePaginas) ? cantidadMaximaDePaginas : cantidadPaginas;
+
+    if (Model.Actual_Page > radio + 1)
+    {
+        Inicial = Model.Actual_Page - radio;
+
+        if (cantidadPaginas > Model.Actual_Page + radio)
+        {
+            Final = Model.Actual_Page + radio;
+        }
+        else
+        {
+            Final = cantidadPaginas;
+        }
+    }
+
+}
+
+<ul class="pagination">
+    @{Model.valueQueryString["pagina"] = 1; }
+
+    <li>@Html.ActionLink("Primera", null, Model.valueQueryString)</li>
+    @for (int i = Inicial; i <= Final; i++)
+    {
+        Model.valueQueryString["pagina"] = i;
+        if (i == Model.Actual_Page)
+        {
+            <li class="active">@Html.ActionLink(i.ToString(), null, Model.valueQueryString)</li>
+        }
+        else
+        {
+            <li>@Html.ActionLink(i.ToString(), null, Model.valueQueryString)</li>
+        }
+    }
+    @{Model.valueQueryString["pagina"] = cantidadPaginas; }
+    <li>@Html.ActionLink("Ultima", null, Model.valueQueryString)</li>
+</ul>

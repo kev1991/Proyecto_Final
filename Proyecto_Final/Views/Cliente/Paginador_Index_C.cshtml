@@ -1,0 +1,28 @@
+﻿
+@model Proyecto_Final.Models.Cliente_Index
+
+@{
+    ViewBag.Title = "Paginador_Index_C";
+}
+
+<h2>Paginador_Index_C</h2>
+
+<table class="table table-striped">
+    <tr>
+        <th>Nombre</th>
+        <th>Documento</th>
+        <th>Correo</th>
+    </tr>
+    @foreach (var cliente in Model.Clientes)
+    {
+        <tr>
+            <td>@cliente.nombre</td>
+            <td>@cliente.documento</td>
+            <td>@cliente.email</td>
+        </tr>
+    }
+</table>
+@Html.ActionLink("Regresar a la lista", "Index")
+@{ Html.RenderPartial("Paginador", Model); }
+
+
